@@ -3,6 +3,15 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="./interface.css" />
 		<title>Test Idle Game</title>
+		<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D2B0SHYXD7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-D2B0SHYXD7');
+</script>
 	</head>
 	<body>
 		<button onClick="testClick(1)">Test</button>
@@ -15,6 +24,9 @@
 		Testers: <span id="Testers">0</span>
 		<br />
 		Cost: <span id="TestersCost">10</span>
+		<br />
+		<br />
+		<button onClick="deleteSave()">Delete Save</button>
 		
 		<script type="text/javascript" src="./main.js"></script>
 	</body>
