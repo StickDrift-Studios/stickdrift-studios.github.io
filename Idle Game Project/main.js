@@ -3,13 +3,13 @@ var Testers = 0;
 
 function save(){ //save the game
 	var save = {
-	tests: Tests,
-	testers: Testers
-};
-	localStorage.setItem("save",JSON.stringify(save));
+		tests: Tests,
+		testers: Testers
+	};
+	localStorage.setItem("save", save);
 };
 function load(){ //load the game
-	var savegame = JSON.parse(localStorage.getItem("save"));
+	let savegame = localStorage.getItem("save");
 	if(typeof savegame.tests !== "undefined") Tests = savegame.tests; //load Tests
 	if(typeof savegame.testers !== "undefined") Testers = savegame.testers;   //load Testers
 };
@@ -45,3 +45,6 @@ function prettify(input){
 	return output;
 };
 
+window.setInterval(function(){ //save every 5min
+	save();
+}, 5000); // 300000 = 300s
