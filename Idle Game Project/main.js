@@ -45,6 +45,3 @@ function prettify(input){
 	return output;
 };
 
-window.setInterval(function(){ //save every 5min
-	save();
-}, 5000); // 300000 = 300s
