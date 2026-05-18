@@ -1,35 +1,69 @@
-<!DOTYPE html>
-<html>
-	<head>
-		<link rel="stylesheet" type="text/css" href="./interface.css" />
-		<title>Test Idle Game</title>
-		<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-D2B0SHYXD7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  gtag('config', 'G-D2B0SHYXD7');
-</script>
-	</head>
-	<body>
-		<button onClick="testClick(1)">Test</button> <!-- Testing Button -->
-		<br />
-		<span id="tests">0</span> Tests <!-- Amount of Tests -->
-		<br />
-		<br />
-		<button onClick="buyTester()">Buy a Tester</button> <!-- Tester Buy Button -->
-		<br />
-		Testers: <span id="Testers">0</span> <!-- Amount of Testers -->
-		<br />
-		Cost: <span id="TestersCost">10</span> <!-- Cost of Testers -->
-		<br />
-		<br />
-		<button onClick="save()">Save Game</button>
-		<br />
-		<button onClick="deleteSave()">Delete Save</button> <!-- Delete Save Button -->
-		
-		<script type="text/javascript" src="./main.js"></script>
-	</body>
+    <title>Time Traveler Idle</title>
+
+    <link rel="stylesheet" href="./interface.css" />
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D2B0SHYXD7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-D2B0SHYXD7');
+    </script>
+</head>
+
+<body>
+    <h1>Time Traveler Idle</h1>
+
+    <!-- Scrap Section -->
+    <section id="scrap-section">
+        <button onclick="gatherScrap(1)">
+            Gather Scrap
+        </button>
+
+        <p>
+            <span id="scrap">0</span> Scrap Metal
+        </p>
+    </section>
+
+    <!-- Magnet Cart Section -->
+    <section id="magnet-cart-section">
+        <button onclick="buyCart()" id="magnetCartBuy">
+            Create Magnet Cart
+        </button>
+
+        <p>
+            Magnet Carts:
+            <span id="magnetCart">0</span>
+        </p>
+
+        <p>
+            Cost:
+            <span id="cartCost">10</span> Scrap
+        </p>
+    </section>
+
+    <!-- Save Controls -->
+    <section id="save-section">
+        <button onclick="save()">
+            Save Game
+        </button>
+
+        <button onclick="deleteSave()">
+            Delete Save
+        </button>
+    </section>
+
+    <script src="./main.js"></script>
+</body>
 </html>
