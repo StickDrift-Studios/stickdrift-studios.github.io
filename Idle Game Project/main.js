@@ -207,8 +207,10 @@ function load() {
 	
 // Delete save and reload page
 function deleteSave() {
-	try { localStorage.removeItem(storageKey); } catch (_) {}
-	location.reload();
+	if (confirm("Are you sure you want to delete your save?\nThis action is IRREVERSIBLE")) {
+		try { localStorage.removeItem(storageKey); } catch (_) {}
+		location.reload();
+	}
 }
 
 
