@@ -4,6 +4,7 @@ var magnetCart = 0;
 // Save Section
 function save(){ // save the game
 	var save = {
+		version: 2,
 		scrap: scrap,
 		magnetCart: magnetCart
 	};
@@ -11,18 +12,31 @@ function save(){ // save the game
 	localStorage.setItem("save", JSON.stringify(save));
 }
 function load(){ // load the game
+
 	var savegame = JSON.parse(localStorage.getItem("save"));
-
-	if(savegame !== null){
-		if(typeof savegame.scrap !== "undefined"){
-			scrap = savegame.scrap;
-		}
-
-		if(typeof savegame.magnetCart !== "undefined"){
-			magnetCart = savegame.magnetCart;
-		}
+	
+	if(savegame == null){
+		reutrn;
 	}
-
+	
+	// OLD SAVE VERIONS
+	if(savegame.version === undefined){
+		
+		// Convert old variables to new ones
+		savegame.scrap = savegame.tests ?? 0;
+		savegame.magnetCart = savegame.testers ?? 0;
+		
+		// Update version
+		savegame.version = 2;
+		
+		//save converted data
+		localStorage.setItem("save", JSON.stringify(savegame));
+	}
+	
+	// GAME DATA
+	scrap = savegame.scrap ?? 0;
+	magnetCart = savegame.magnetCart ?? 0;
+	
 	// Update UI after loading
 	document.getElementById("scrap").innerHTML = prettify(scrap);
 	document.getElementById("magnetCart").innerHTML = magnetCart;
