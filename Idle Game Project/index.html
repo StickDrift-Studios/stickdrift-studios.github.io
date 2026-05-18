@@ -1,14 +1,9 @@
-<!-- File: index.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Time Traveler Idle</title>
-
-  <link rel="stylesheet" href="./interface.css" />
-
-  <!-- Google Analytics -->
+<!DOTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="./interface.css" />
+		<title>Idle Time Traveler</title>
+		  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-D2B0SHYXD7"></script>
   <script>
     /* Global site tag (gtag.js) - Google Analytics */
@@ -17,41 +12,33 @@
     gtag("js", new Date());
     gtag("config", "G-D2B0SHYXD7");
   </script>
-
-  <!-- Game logic (deferred so DOM exists before it runs) -->
-  <script defer src="./main.js"></script>
-</head>
-
-<body>
-  <h1>Time Traveler Idle</h1>
-
-  <!-- Scrap Section -->
-  <section id="scrap-section">
-    <button onclick="gatherScrap(1)">Gather Scrap</button>
-    <p><span id="scrap">0</span> Scrap Metal</p>
-  </section>
-
-  <!-- Magnet Cart Section -->
-  <section id="magnet-cart-section">
-    <button onclick="buyCart()" id="magnetCartBuy">Create Magnet Cart</button>
-    <!-- Show total scraps/sec contributed by all Magnet Carts in parentheses -->
-    <p>Magnet Carts: <span id="magnetCart">0</span> (<span id="magnetCartSps">0</span> scrap/s)</p>
-    <p>Cost: <span id="cartCost">10</span> Scrap</p>
-  </section>
-
-  <!-- Rust Collector Section -->
-  <section id="rust-collector-section">
-    <!-- Requires Magnet Carts only (consumed), no Scrap -->
-    <button onclick="buyCollector()" id="rustCollectorBuy">Build Rust Collector</button>
-    <!-- Show total scraps/sec contributed by all Rust Collectors in parentheses -->
-    <p>Rust Collectors: <span id="rustCollector">0</span> (<span id="rustCollectorSps">0</span> scrap/s)</p>
-    <p>Cost: <span id="collectorCost">1</span> Magnet Carts</p>
-  </section>
-
-  <!-- Save Controls -->
-  <section id="save-section">
-    <button onclick="save()">Save Game</button>
-    <button onclick="deleteSave()">Delete Save</button>
-  </section>
-</body>
+	</head>
+	<body>
+		<h1>Idle Time Traveler</h1>
+		
+		<!-- Scrap Gathering -->
+		<section id="scrapGathering">
+			<p><button onclick="gatherScrap(1)">Gather Scrap</button></p>
+			<p><span id="scrap">0</span> Scrap Metal (<span id="scrap/s">0</span> scrap/s)</p>
+		</section>
+		
+		<!-- Magnet Carts -->
+		<section id="magnetCartsSection" class="hidden">
+			<p><button onclick="buyCart()" id="cartCreator" disabled>Create Magnet Cart | <span id="cartCost">10</span> Scrap Metal</button>
+			<br>
+			Magnet Carts: <span id="cartAmount">0</span> (<span id="cartGen/s">0</span> scrap/s)</p>
+		</section>
+		
+		<!-- Rust Collectors -->
+		<section id="rustCollectorSection" class="hidden">
+			<p><button onclick="buyCollector()" id="collectorCreator" disabled>Create Rust Collector | <span id="collectorCost">0</span> Magnet Carts</button><br>
+			Rust Collectors: <span id="collectorAmount">0</span> (<span id="collectorGen/s">0</span> scrap/s)</p>
+		</section>
+		
+		<!-- Save Section -->
+		<section id="saveManager">
+			<button onclick="deleteSave()" class="red">Delete Save</button>
+		
+		<script type="text/javascript" src="./main.js"></script>
+	</body>
 </html>
