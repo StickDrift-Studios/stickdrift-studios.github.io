@@ -34,8 +34,18 @@
   <!-- Magnet Cart Section -->
   <section id="magnet-cart-section">
     <button onclick="buyCart()" id="magnetCartBuy">Create Magnet Cart</button>
-    <p>Magnet Carts: <span id="magnetCart">0</span></p>
+    <!-- Show total scraps/sec contributed by all Magnet Carts in parentheses -->
+    <p>Magnet Carts: <span id="magnetCart">0</span> (<span id="magnetCartSps">0</span> scrap/s)</p>
     <p>Cost: <span id="cartCost">10</span> Scrap</p>
+  </section>
+
+  <!-- Rust Collector Section -->
+  <section id="rust-collector-section">
+    <!-- Requires Magnet Carts only (consumed), no Scrap -->
+    <button onclick="buyCollector()" id="rustCollectorBuy">Build Rust Collector</button>
+    <!-- Show total scraps/sec contributed by all Rust Collectors in parentheses -->
+    <p>Rust Collectors: <span id="rustCollector">0</span> (<span id="rustCollectorSps">0</span> scrap/s)</p>
+    <p>Cost: <span id="collectorCost">1</span> Magnet Carts</p>
   </section>
 
   <!-- Save Controls -->
